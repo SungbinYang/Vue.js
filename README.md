@@ -1,5 +1,8 @@
 # Vue.js
 
+## 라이프 사이클 다이어그램
+[https://v3.ko.vuejs.org/images/lifecycle.svg](라이프 사이클 다이어그램)
+
 ## Vue 시작하기
   - 개요
   - CDN 프로젝트 구성 방법
