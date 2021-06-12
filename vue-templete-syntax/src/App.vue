@@ -1,10 +1,7 @@
 <template>
-  <button @click="add">
-    Add
-  </button>
-  <h1>{{ reversedMessage }}</h1>
-  <h1>{{ reversedMessage }}</h1>
-  <h1>{{ reversedMessage }}</h1>
+  <h1 @click="changeMessage">
+    {{ msg }}
+  </h1>
   <h1>{{ reversedMessage }}</h1>
 </template>
 
@@ -13,30 +10,25 @@ export default {
   data() {
     return {
       // Getter, Setter 둘다 사용 가능
-      msg: 'Hello Computed!'
+      msg: 'Hello?'
     }
   },
-  computed: { // 캐싱 기능이 있어서 반복할 필요가 없음 성능 최적화
-    // Getter로만 사용
-    // reversedMessage() {
-    //   return this.msg.split('').reverse().join('');
-    // }
-
-    // Getter, Setter로 재정의
-    reversedMessage: {
-      get() {
-        return this.msg.split('').reverse().join('');
-      },
-      set(value) {
-        // this.msg = value;
-        console.log(value);
-      }
+  computed: {
+    reversedMessage() {
+      return this.msg.split('').reverse().join(''); // Getter
     }
   },
-  methods: { // 호출될때마다 불려져서 성능이 안 좋음
-    add() {
-      this.reversedMessage += '!?';
-      // this.msg += '!?';
+  watch: { // 원본의 데이터뿐만 아니라 computed된 데이터도 감시를 할수 있다. 또한 this를 사용하지 않고 매개변수로 값을 받을수도 있다.
+    msg(newValue) {
+      console.log('msg: ', newValue); // Good!
+    },
+    reversedMessage(newValue) {
+      console.log('reversedMessage: ', newValue);
+    }
+  },
+  methods: {
+    changeMessage() {
+      this.msg = 'Good!';
     }
   }
 }
