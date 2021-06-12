@@ -33,3 +33,9 @@
   - 컴포넌트 -> Slot
   - 컴포넌트 -> Provide, Inject
   - 컴포넌트 -> Refs
+
+## 컴포지션 API
+  - 개요
+  - 반응형 데이터(반응성)
+  - 기본 옵션과 라이프사이클
+  - props, context
