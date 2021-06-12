@@ -1,33 +1,9 @@
 <template>
   <div class="btn">
-    <slot></slot>
+    <slot name="icon"></slot>
+    <slot name="text"></slot>
   </div>
-  <h1 @dblclick="$emit('sungbin', $event)">
-    ABC
-  </h1>
-  <input
-    type="text"
-    v-model="msg" />
 </template>
-
-<script>
-export default {
-  emits: [
-    'sungbin',
-    'changeMsg'
-  ],
-  data() {
-    return {
-      msg: ''
-    }
-  },
-  watch: {
-    msg() {
-      this.$emit('changeMsg', this.msg);
-    }
-  }
-}
-</script>
 
 <style scoped>
   .btn {
