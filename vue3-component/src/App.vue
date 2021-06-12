@@ -1,15 +1,10 @@
 <template>
-  <MyBtn>Banana</MyBtn>
-  <MyBtn :color="color">
-    <span style="color: red;">Apple</span>
-  </MyBtn>
   <MyBtn
-    large
-    color="royalblue">
-    Cherry
+    class="sungbin"
+    style="color: red;"
+    title="Hello World!">
+    Banana
   </MyBtn>
-  <MyBtn>Orange</MyBtn>
-  <button>Banana</button>
 </template>
 
 <script>
@@ -18,11 +13,6 @@ import MyBtn from '~/components/MyBtn'
 export default {
   components: {
     MyBtn
-  },
-  data() {
-    return {
-      color: '#000'
-    }
   }
 }
 </script>
