@@ -1,18 +1,45 @@
 <template>
-  <div class="btn">
-    <slot name="icon"></slot>
-    <slot name="text"></slot>
+  <div
+    v-bind="$attrs"
+    class="btn"
+    @click="hello">
+    <slot></slot>
   </div>
 </template>
 
-<style scoped>
-  .btn {
-    display: inline-block;
-    margin: 4px;
-    padding: 6px 12px;
-    border-radius: 4px;
-    background-color: gray;
-    color: white;
-    cursor: pointer;
+<script>
+import { onMounted } from 'vue';
+
+export default {
+  inheritAttrs: false,
+  props: {
+    color: {
+      type: String,
+      default: 'gray'
+    }
+  },
+  emits: ['hello'],
+  // mounted() {
+  //   console.log(this.color);
+  //   console.log(this.$attrs);
+  // },
+  // methods: {
+  //   hello() {
+  //     this.$emit('hello');
+  //   }
+  // },
+  setup(props, context) {
+    function hello() {
+      context.emit('hello');
+    }
+    onMounted(() => {
+      console.log(props.color);
+      console.log(context.attrs);
+    });
+
+    return {
+      hello
+    }
   }
-</style>
+}
+</script>
